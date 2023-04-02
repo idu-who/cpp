@@ -10,7 +10,7 @@ int main(){
 
     std::cout << "Enter your name: ";
     // std::cin >> name;
-    std::getline(std::cin, name); // include spaces
+    std::getline(std::cin >> std::ws, name); // include spaces
 
     std::cout << "Enter your age: ";
     std::cin >> age;
@@ -24,6 +24,7 @@ int main(){
 
     // data includes spaces
     std::cout << "Enter date of birth (dd mm yyyy): ";
+    std::cin >> std::ws;
     std::cin.getline(dob, 11);
 
     std::cout << "Hello " << name << "!" << std::endl;

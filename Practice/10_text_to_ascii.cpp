@@ -5,7 +5,7 @@ int main(){
     std::string text;
 
     std::cout << "Enter text: ";
-    std::getline(std::cin, text);
+    std::getline(std::cin >> std::ws, text);
 
     std::cout << "\nASCII encoded text" << std::endl;
 
