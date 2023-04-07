@@ -1,16 +1,14 @@
 #include <iostream>
 
 template <typename T>
-void swap(T &a, T &b)
-{
+void swap(T &a, T &b) {
     T temp = a;
     a = b;
     b = temp;
     return;
 }
 
-int main()
-{
+int main() {
     int a = 6, b = 4;
 
     std::cout << a << " " << b << std::endl;

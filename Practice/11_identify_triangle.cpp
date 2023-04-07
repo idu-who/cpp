@@ -3,27 +3,22 @@
 
 auto max_streamsize{std::numeric_limits<std::streamsize>::max()};
 
-void clearInputBuffer()
-{
+void clearInputBuffer() {
     std::cin.ignore(max_streamsize, '\n');
 }
 
-float getInput(char side_no)
-{
+float getInput(char side_no) {
     float input_val;
     // TODO: make single call to clearInputBuffer
     std::cin >> input_val;
     clearInputBuffer();
 
-    if (std::cin.fail())
-    {
+    if (std::cin.fail()) {
         std::cin.clear();
         clearInputBuffer();
         std::cout << "Enter a number for length of side " << side_no << " : ";
         input_val = getInput(side_no);
-    }
-    else if (!(input_val > 0))
-    {
+    } else if (!(input_val > 0)) {
         std::cout << "Enter a positive number for length of side " << side_no << " : ";
         input_val = getInput(side_no);
     }
@@ -31,13 +26,11 @@ float getInput(char side_no)
     return input_val;
 }
 
-bool isValidTriangle(short int side_1, short int side_2, short int side_3)
-{
+bool isValidTriangle(short int side_1, short int side_2, short int side_3) {
     return (side_1 + side_2 > side_3) && (side_2 + side_3 > side_1) && (side_3 + side_1 > side_2);
 }
 
-int main()
-{
+int main() {
     float side_1, side_2, side_3;
 
     std::cout << "Enter length of 3 sides of a triangle (as positive numbers)" << std::endl;
@@ -51,23 +44,15 @@ int main()
     std::cout << side_1 << " " << side_2 << " " << side_3 << std::endl;
 
     std::cout << "\nResult: ";
-    if (isValidTriangle(side_1, side_2, side_3))
-    {
-        if (side_1 == side_2 && side_2 == side_3)
-        {
+    if (isValidTriangle(side_1, side_2, side_3)) {
+        if (side_1 == side_2 && side_2 == side_3) {
             std::cout << "equilateral triangle" << std::endl;
-        }
-        else if (side_1 == side_2 || side_2 == side_3 || side_3 == side_1)
-        {
+        } else if (side_1 == side_2 || side_2 == side_3 || side_3 == side_1) {
             std::cout << "isosceles triangle" << std::endl;
-        }
-        else
-        {
+        } else {
             std::cout << "scalene triangle" << std::endl;
         }
-    }
-    else
-    {
+    } else {
         std::cout << "not a triangle" << std::endl;
     }
 

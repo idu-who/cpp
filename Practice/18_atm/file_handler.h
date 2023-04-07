@@ -6,4 +6,4 @@
 std::istringstream readLines(std::string);
 void appendLine(std::string, std::string);
 
-#endif // FILE_HANDLER_H
+#endif  // FILE_HANDLER_H

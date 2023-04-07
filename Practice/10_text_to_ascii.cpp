@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int main(){
+int main() {
     std::string text;
 
     std::cout << "Enter text: ";
@@ -9,8 +9,7 @@ int main(){
 
     std::cout << "\nASCII encoded text" << std::endl;
 
-    for (short int index {0}; index < text.length(); index++)
-    {
+    for (short int index{0}; index < text.length(); index++) {
         std::cout << int(text[index]) << " ";
     }
 

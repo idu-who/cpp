@@ -1,11 +1,9 @@
 #include <iostream>
 
-int main()
-{
+int main() {
     // Syntax for class definition ends in a semi-colon to allow inline object instanciation
-    class Polygon
-    {
-    public:
+    class Polygon {
+       public:
         int no_sides, no_vertices;
     } p1, p2;
 

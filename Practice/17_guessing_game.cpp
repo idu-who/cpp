@@ -5,36 +5,28 @@
 auto max_streamsize{std::numeric_limits<std::streamsize>::max()};
 short int turn_limit{5};
 
-void clearInputBuffer()
-{
+void clearInputBuffer() {
     // clears entire input buffer, stops on \n character
     std::cin.ignore(max_streamsize, '\n');
 }
 
-short int getValidNumber()
-{
+short int getValidNumber() {
     short int number;
     // take input and validate, repeat until valid input is received
-    while (true)
-    {
+    while (true) {
         // TODO: make single call to clearInputBuffer
         std::cin >> number;
         clearInputBuffer();
 
-        if (std::cin.fail())
-        {
+        if (std::cin.fail()) {
             // if the input fails, then prompt the user and continue
             std::cin.clear();
             clearInputBuffer();
             std::cout << "Pick a valid integer number: ";
-        }
-        else if (number < 1 || number > 100)
-        {
+        } else if (number < 1 || number > 100) {
             // if the input is invalid, then prompt the user and continue
             std::cout << "Pick a number between 1 and 100: ";
-        }
-        else
-        {
+        } else {
             // if the input is successful and valid, break and return
             break;
         }
@@ -42,26 +34,21 @@ short int getValidNumber()
     return number;
 }
 
-std::string getHint(short int guess, short int solution)
-{
+std::string getHint(short int guess, short int solution) {
     // return a hint text
-    if (guess < solution)
-    {
+    if (guess < solution) {
         return std::to_string(guess) + " is too \x1B[47mLOW\033[0m.";
-    }
-    else
-    {
+    } else {
         return std::to_string(guess) + " is too \x1B[47mHIGH\033[0m.";
     }
 }
 
-int main()
-{
+int main() {
     short int solution, guess;
 
     std::cout << "\x1B[34m"
               << "Host's Turn"
-              << "\033[0m" << std::endl; // color text using ASCII color codes
+              << "\033[0m" << std::endl;  // color text using ASCII color codes
 
     // prompting user and taking valid input
     std::cout << "Pick a number between 1 and 100: ";
@@ -74,8 +61,7 @@ int main()
     std::cout << "You have " << turn_limit << " turns to guess correctly." << std::endl;
 
     // Handling Guesser's Turns
-    for (short int turn{0}; turn < turn_limit; turn++)
-    {
+    for (short int turn{0}; turn < turn_limit; turn++) {
         // Printing Turn Number
         std::cout << "\n\x1B[36m"
                   << "Turn " + std::to_string(turn + 1) << "\033[0m" << std::endl;
@@ -85,19 +71,14 @@ int main()
         guess = getValidNumber();
 
         // checking guess
-        if (guess == solution)
-        {
+        if (guess == solution) {
             // print victory message and exit
             std::cout << "\x1B[32mCongrats! You guessed the number!\033[0m" << std::endl;
             break;
-        }
-        else if (turn < turn_limit - 1)
-        {
+        } else if (turn < turn_limit - 1) {
             // give hint and continue to next turn
             std::cout << "\x1B[31mTry again. " << getHint(guess, solution) << "\033[0m" << std::endl;
-        }
-        else
-        {
+        } else {
             // print loss message
             std::cout << "The number was " << solution << ". Better luck next time!" << std::endl;
         }

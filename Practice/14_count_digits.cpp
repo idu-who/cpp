@@ -1,27 +1,22 @@
 #include <iostream>
 
-int main()
-{
+int main() {
     int number, temp;
     short int count{0};
 
     std::cout << "Enter a number: ";
 
     // if input is successful, count digits
-    if (std::cin >> number)
-    {
-        temp = abs(number); // abs to convert negative numbers
+    if (std::cin >> number) {
+        temp = abs(number);  // abs to convert negative numbers
 
-        do
-        {
+        do {
             temp /= 10;
             count++;
         } while (temp > 0);
 
         std::cout << number << " has " << count << " digits." << std::endl;
-    }
-    else
-    {
+    } else {
         std::cout << "Invalid number." << std::endl;
     }
 

@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 
-int main(){
+int main() {
     std::string name;
     int age;
     char dob[11];
 
-    //Separate inputs
+    // Separate inputs
 
     std::cout << "Enter your name: ";
     // std::cin >> name;
-    std::getline(std::cin >> std::ws, name); // include spaces
+    std::getline(std::cin >> std::ws, name);  // include spaces
 
     std::cout << "Enter your age: ";
     std::cin >> age;
