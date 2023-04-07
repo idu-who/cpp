@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-std::string str_tolower(std::string str) {
+std::string strToLower(std::string str) {
     for (char &c : str) {
         c = std::tolower(c);
     }
@@ -15,16 +15,16 @@ class Polygon {
    public:
     Polygon(int no_sides, int no_vertices) : no_sides(no_sides), no_vertices(no_vertices) {}
 
-    void set_name(std::string name_input) {
+    void setName(std::string name_input) {
         name = name_input;
     }
 
-    std::string get_name() {
-        return str_tolower(name);
+    std::string getName() {
+        return strToLower(name);
     }
 
-    void print_info() {
-        std::cout << "name: " << get_name() << std::endl;
+    void printInfo() {
+        std::cout << "name: " << getName() << std::endl;
         std::cout << "no of sides: " << no_sides << std::endl;
         std::cout << "no of vertices: " << no_vertices << std::endl;
     }
@@ -32,7 +32,7 @@ class Polygon {
 
 int main() {
     Polygon p1(3, 3);
-    p1.set_name("TriAnGlE");
-    p1.print_info();
+    p1.setName("TriAnGlE");
+    p1.printInfo();
     return 0;
 }

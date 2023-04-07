@@ -35,8 +35,8 @@ short int getValidNumber() {
 }
 
 std::string getHint(short int guess, short int solution) {
-    // return a hint text
     if (guess < solution) {
+        // return a hint text
         return std::to_string(guess) + " is too \x1B[47mLOW\033[0m.";
     } else {
         return std::to_string(guess) + " is too \x1B[47mHIGH\033[0m.";
@@ -60,9 +60,9 @@ int main() {
               << "\033[0m" << std::endl;
     std::cout << "You have " << turn_limit << " turns to guess correctly." << std::endl;
 
-    // Handling Guesser's Turns
+    // handling guesser's turns
     for (short int turn{0}; turn < turn_limit; turn++) {
-        // Printing Turn Number
+        // printing turn number
         std::cout << "\n\x1B[36m"
                   << "Turn " + std::to_string(turn + 1) << "\033[0m" << std::endl;
 
@@ -70,8 +70,8 @@ int main() {
         std::cout << "Pick a number between 1 and 100: ";
         guess = getValidNumber();
 
-        // checking guess
         if (guess == solution) {
+            // checking guess
             // print victory message and exit
             std::cout << "\x1B[32mCongrats! You guessed the number!\033[0m" << std::endl;
             break;

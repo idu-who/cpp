@@ -6,8 +6,8 @@ int main() {
 
     std::cout << "Enter a number: ";
 
-    // if input is successful, count digits
     if (std::cin >> number) {
+        // if input is successful, count digits
         temp = abs(number);  // abs to convert negative numbers
 
         do {

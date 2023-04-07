@@ -21,8 +21,8 @@ std::tuple<unsigned short int, std::string, std::string, std::string> splitAccou
 
     // iterate through characters of the record
     for (short int index{0}; index < length; index++) {
-        // if a , is found then store field's data in its variable
         if (record[index] == ',') {
+            // if a , is found then store field's data in its variable
             comma_count++;
             std::string field_data = record.substr(next_start_index, index - next_start_index);
             switch (comma_count) {
@@ -37,9 +37,8 @@ std::tuple<unsigned short int, std::string, std::string, std::string> splitAccou
                     break;
             }
             next_start_index = index + 1;
-        }
-        // edge case for last field
-        else if (index == length - 1) {
+        } else if (index == length - 1) {
+            // edge case for last field
             name = record.substr(next_start_index, length - next_start_index);
         }
     }

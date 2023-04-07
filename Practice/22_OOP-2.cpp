@@ -22,7 +22,7 @@ class Polygon {
         no_vertices = no_vertices_input;
     }
 
-    void print_info() {
+    void printInfo() {
         std::cout << "no of sides: " << no_sides << std::endl;
         std::cout << "no of vertices: " << no_vertices << std::endl;
     }
@@ -30,7 +30,7 @@ class Polygon {
 
 int main() {
     Polygon p1(4, 4);
-    p1.print_info();
+    p1.printInfo();
 
     return 0;
 }
